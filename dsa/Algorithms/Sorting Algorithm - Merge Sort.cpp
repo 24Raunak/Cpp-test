@@ -1,25 +1,27 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 void merge(vector<int>& arr, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
-
+    
     vector<int> L(n1), R(n2);
-    for (int i = 0; i < n1; i++) {
-        L[i] = arr[left + i];
-    }
-    for (int j = 0; j < n2; j++) {
-        R[j] = arr[mid + 1 + j];
-    }
 
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    
+    for (int j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+    
     int i = 0, j = 0;
     int k = left;
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
             arr[k] = L[i];
             i++;
-        } else {
+        }
+        else {
             arr[k] = R[j];
             j++;
         }
@@ -39,27 +41,25 @@ void merge(vector<int>& arr, int left, int mid, int right) {
 }
 
 void mergeSort(vector<int>& arr, int left, int right) {
-    if(left >= right) {
+    if (left >= right)
         return;
-    }
-
+    
     int mid = left + (right - left) / 2;
+    
     mergeSort(arr, left, mid);
     mergeSort(arr, mid + 1, right);
     merge(arr, left, mid, right);
 }
 
-void printVector(vector<int>& arr) {
-    for(int &val: arr) {
-        cout << val << " ";
-    }
-}
-
 int main() {
-    vector<int> arr = {56, 57, 23, 94, 62, 39};
+
+    vector<int> arr = {213, 23, 342, 832, 21};
     int n = arr.size();
 
     mergeSort(arr, 0, n - 1);
-    printVector(arr);
+
+    for (int i : arr)
+        cout << i << " ";
+
     return 0;
 }

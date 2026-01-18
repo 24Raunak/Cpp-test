@@ -1,30 +1,28 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 void selectionSort(vector<int> &arr) {
     int n = arr.size();
-
-    for(int i = 0; i < n - 1; i++) {
+    
+    for (int i = 0; i < n - 1; i++) {
         int min_idx = i;
-
-        for(int j = i + 1; j < n; j++) {
-            if(arr[j] < arr[min_idx]) {
+            
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx])
                 min_idx = j;
-            }
         }
+            
         swap(arr[i], arr[min_idx]);
     }
 }
 
-void printArray(vector<int> &arr) {
-    for (int &val: arr) {
-        cout << val << " ";
-    }
-}
-
 int main() {
-    vector<int> arr = {64, 25, 34, 76};
+    vector<int> arr = {32, 32, 32, 31, 321};
+    
     selectionSort(arr);
-    printArray(arr);
+    for (int i : arr)
+        cout << i << " ";
+    
     return 0;
 }

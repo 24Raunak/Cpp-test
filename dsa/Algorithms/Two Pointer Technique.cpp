@@ -6,26 +6,29 @@ bool twoSum(vector<int>& arr, int target) {
     int left = 0;
     int right = arr.size() - 1;
 
-    while(left < right) {
+    while (left < right) {
         int sum = arr[left] + arr[right];
-        if(sum == target) {
+
+        if (sum == target)
             return true;
-        } else if(sum < target) {
+        
+        else if (sum < target)
             left++;
-        } else {
+        else
             right--;
-        }
     }
+
     return false;
 }
 
 int main() {
-    vector<int> arr = {-3, -1, 0, 1, 2};
-    int target = -1;
-    if(twoSum(arr, target)) {
-        cout << "true";
-    } else {
-        cout << "false";
-    }
+    vector<int> arr = {12, 32, 45, 56, 87};
+    int target = 99;
+
+    if (twoSum(arr, target))
+        cout << "True";
+    else
+        cout << "False";
+    
     return 0;
 }

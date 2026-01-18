@@ -1,25 +1,23 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int search(vector<int>& arr, int target) {
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] == target) {
+int search(vector<int>& arr, int x) {
+    
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] == x)
             return i;
-        }
     }
+
     return -1;
 }
 
 int main() {
-    vector<int> arr = {2, 4, 6, 7, 10, 34, 56};
-    int target = 34;
-    int result = search(arr, target);
+    vector<int> arr = {23, 35, 48, 564, 46, 3, 22};
+    int x = 48;
 
-    if(result == -1) {
-        cout << "Element not found";
-    } else {
-        cout << result;
-    }
+    int result = search(arr, x);
+    cout << result;
 
     return 0;
 }

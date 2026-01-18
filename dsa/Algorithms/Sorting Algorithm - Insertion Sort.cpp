@@ -1,14 +1,15 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+using  namespace std;
 
 void insertionSort(vector<int>& arr) {
     int n = arr.size();
-
-    for(int i = 1; i < n; i++) {
+        
+    for (int i = 1; i < n; i++) {
         int key = arr[i];
         int j = i - 1;
-
-        while(j >= 0 && arr[j] > key) {
+            
+        while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
         }
@@ -16,15 +17,12 @@ void insertionSort(vector<int>& arr) {
     }
 }
 
-void printVector(vector<int>& arr) {
-    for(int &val : arr) {
-        cout << val << " ";
-    }
-}
-
 int main() {
-    vector<int> arr = {34, 3, 32, 35, 6, 7};
+    vector<int> arr = {12, 21, 23, 45, 3, 45, 364, 43};
+
     insertionSort(arr);
-    printVector(arr);
+    for (int i : arr)
+        cout << i << " ";
+
     return 0;
 }
